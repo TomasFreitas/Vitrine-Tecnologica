@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institucional</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" href="assets/images/logoIF2.png">
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <img src="assets/images/logoIFPB.png" alt="Logo IFPB">
+            <div class="title">
+                <h1>Vitrine Tecnológica</h1>
+                <h2>PORTIFÓLIO DAS PATENTES E SOFTWARES DO IFPB</h2>
+                <p class="campus-title">Campus Cajazeiras</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="patentes.html">Patentes</a></li>
+                <li><a href="softwares.html">Softwares</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+                <li><a href="institucional.html">Institucional</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="institucional-container">
+            <h1 class="page-title">Institucional</h1>
+
+            <div class="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'vitrine')">A Vitrine Tecnológica</button>
+                <button class="tab-link" onclick="openTab(event, 'diretoria')">Diretoria de Inovação</button>
+                <button class="tab-link" onclick="openTab(event, 'formularios')">Formulários para a Vitrine</button>
+                <button class="tab-link" onclick="openTab(event, 'administrador')">Administrador</button>
+            </div>
+
+            <div id="vitrine" class="tab-content active">
+                <p>
+                    O objetivo da Vitrine é divulgar à sociedade e ao mercado os projetos de tecnologia e inovação
+                    desenvolvidos no Instituto Federal da Paraíba (IFPB), evidenciando o potencial da ciência e da
+                    pesquisa
+                    para o
+                    desenvolvimento social, bem como a transparência das informações.
+                </p>
+            </div>
+            <div id="diretoria" class="tab-content">
+                <p>
+                    A Diretoria de Inovação tem como missão apoiar e incentivar o desenvolvimento científico e
+                    tecnológico
+                    no âmbito do IFPB. É responsável por gerir processos relacionados à propriedade intelectual,
+                    transferência
+                    de tecnologia, incubação de empresas e parcerias com o setor produtivo.
+                </p>
+            </div>
+            <div id="formularios" class="tab-content">
+                <div class="form-toggle-container">
+                    <p class="form-intro-text">Para solicitar o cadastro de uma patente ou software na Vitrine
+                        Tecnológica, utilize o formulário abaixo.</p>
+                    <button class="form-toggle-btn" onclick="toggleForm()">Solicitar</button>
+                </div>
+
+                <div id="formulario-vitrine" class="hidden">
+                    <form class="vitrine-form">
+                        <div class="form-group">
+                            <label for="imagem">Imagem do Projeto</label>
+                            <input type="file" id="imagem" name="imagem" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Digite o título do projeto"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o projeto"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="autores">Autores</label>
+                            <input type="text" id="autores" name="autores" placeholder="Digite os nomes dos autores"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categorias">Categoria</label>
+                            <select id="categorias" name="categorias[]" required>
+                                <option value="patente">Patente</option>
+                                <option value="software">Software</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="areas-conhecimento">Áreas do Conhecimento</label>
+                            <select id="areas-conhecimento" name="areas-conhecimento[]" multiple required>
+                                <option value="saude">Saúde</option>
+                                <option value="engenharia">Engenharia</option>
+                                <option value="robotica">Robótica</option>
+                            </select>
+                            <small class="hint">Segure CTRL (Windows) ou Command (Mac) para selecionar mais de uma
+                                categoria</small>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="administrador" class="tab-content">
+                <button type="submit" class="entrar-btn">Entrar</button>
+                <form class="login-form">
+                    <h2>Login do Administrador</h2>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <button type="submit" class="login-btn">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Contato</h2>
+                <h3>Diretoria de Inovação</h3>
+                <p>
+                    Endereço: Rua José Antônio da Silva, 300 <br>
+                    Bairro Jardim Oásis Cajazeiras - PB CEP: 58.900-000
+                </p>
+                <p>
+                    Horário de Funcionamento de segunda a sexta-feira, das 7h às 22h35.<br>
+                    Telefone: (83) 2017-0142<br>
+                    inovacao.cz@ifpb.edu.br
+                </p>
+                <p><a href="https://www.ifpb.edu.br/prpipg">https://www.ifpb.edu.br/prpipg</a></p>
+            </div>
+            <div class="footer-right">
+                <img src="assets/images/proReitoriaIno.png" alt="Logo IFPB">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Vitrine Tecnológica - IFPB.</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

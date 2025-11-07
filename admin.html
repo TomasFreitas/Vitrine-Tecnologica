@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="brand">
+            <img src="assets/images/logoIFPB.png" alt="Logo IFPB">
+            <div class="title">
+                <h1>Vitrine Tecnológica</h1>
+                <h2>PORTIFÓLIO DAS PATENTES E SOFTWARES DO IFPB</h2>
+                <p class="campus-title">Campus Cajazeiras</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="patentes.html">Patentes</a></li>
+                <li><a href="softwares.html">Softwares</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+                <li><a href="institucional.html">Institucional</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-wrapper">
+        <div class="admin-main-container">
+            <aside class="admin-sidebar">
+                <button class="admin-sidebar-button active" onclick="showSection('projetos-section')">Projetos</button>
+                <button class="admin-sidebar-button" onclick="showSection('categorias-section')">Categorias</button>
+                <button class="admin-sidebar-button" onclick="showSection('cadastrar-projeto-section')">Cadastrar
+                    Projeto</button>
+                <button class="admin-sidebar-button" onclick="showSection('cadastrar-categoria-section')">Cadastrar
+                    Categoria</button>
+                <button class="admin-sidebar-button" onclick="showSection('cadastrar-admin-section')">Cadastrar
+                    Administrador</button>
+            </aside>
+
+            <div class="admin-content-wrapper">
+                <section id="projetos-section" class="admin-section active">
+                    <h2 class="admin-h2">Projetos Cadastrados</h2>
+                    <div class="admin-table-section">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Título</th>
+                                    <th>Categoria</th>
+                                    <th>Área</th>
+                                    <th>Autores</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="ID">1</td>
+                                    <td data-label="Título">Patente de Robótica</td>
+                                    <td data-label="Categoria">Patente</td>
+                                    <td data-label="Área">Robótica</td>
+                                    <td data-label="Autores">João da Silva</td>
+                                    <td data-label="Ações" class="admin-actions">
+                                        <button class="admin-actions-button"
+                                            onclick="openEditModal('projeto', 1, 'Patente de Robótica', 'Descrição da patente', 'João da Silva', 'patente', 'robotica')">Editar</button>
+                                        <button class="admin-actions-button"
+                                            onclick="openDeleteModal('projeto', 1, 'Patente de Robótica')">Excluir</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-label="ID">2</td>
+                                    <td data-label="Título">App de Saúde</td>
+                                    <td data-label="Categoria">Software</td>
+                                    <td data-label="Área">Saúde</td>
+                                    <td data-label="Autores">Maria Santos</td>
+                                    <td data-label="Ações" class="admin-actions">
+                                        <button class="admin-actions-button"
+                                            onclick="openEditModal('projeto', 2, 'App de Saúde', 'Descrição do software', 'Maria Santos', 'software', 'saude')">Editar</button>
+                                        <button class="admin-actions-button"
+                                            onclick="openDeleteModal('projeto', 2, 'App de Saúde')">Excluir</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="categorias-section" class="admin-section">
+                    <h2 class="admin-h2">Categorias Cadastradas</h2>
+                    <div class="admin-table-section">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Categoria</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="ID">1</td>
+                                    <td data-label="Categoria">Inovação</td>
+                                    <td data-label="Ações" class="admin-actions">
+                                        <button class="admin-actions-button"
+                                            onclick="openEditModal('categoria', 1, 'Inovação')">Editar</button>
+                                        <button class="admin-actions-button"
+                                            onclick="openDeleteModal('categoria', 1, 'Inovação')">Excluir</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="cadastrar-projeto-section" class="admin-section">
+                    <h2 class="admin-h2">Cadastrar Novo Projeto</h2>
+                    <div class="admin-form-section">
+                        <form>
+                            <div class="admin-form-group">
+                                <label for="imagem-projeto">Imagem do Projeto</label>
+                                <input type="file" id="imagem-projeto" name="imagem" accept="image/*">
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="projeto-titulo">Título</label>
+                                <input type="text" id="projeto-titulo" placeholder="Digite o título do projeto"
+                                    class="admin-input">
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="projeto-desc">Descrição</label>
+                                <textarea id="projeto-desc" rows="3" placeholder="Descrição do projeto"
+                                    class="admin-input"></textarea>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="projeto-autores">Autores</label>
+                                <input type="text" id="projeto-autores" placeholder="Nome dos autores"
+                                    class="admin-input">
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="projeto-categoria">Categoria</label>
+                                <select id="projeto-categoria" name="projeto-categoria" class="admin-input">
+                                    <option value="">Selecione a Categoria</option>
+                                    <option value="patente">Patente</option>
+                                    <option value="software">Software</option>
+                                </select>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="projeto-areas">Área do Conhecimento</label>
+                                <select id="projeto-areas" name="projeto-areas[]" class="admin-input" multiple>
+                                    <option value="saude">Saúde</option>
+                                    <option value="engenharia">Engenharia</option>
+                                    <option value="robotica">Robótica</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="admin-button">Cadastrar Projeto</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section id="cadastrar-categoria-section" class="admin-section">
+                    <h2 class="admin-h2">Cadastrar Nova Categoria</h2>
+                    <div class="admin-form-section">
+                        <form>
+                            <div class="admin-form-group">
+                                <label for="categoria-nome">Nome da Categoria</label>
+                                <input type="text" id="categoria-nome" placeholder="Digite o nome da categoria"
+                                    class="admin-input">
+                            </div>
+                            <button type="submit" class="admin-button">Cadastrar Categoria</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section id="cadastrar-admin-section" class="admin-section">
+                    <h2 class="admin-h2">Cadastrar Novo Administrador</h2>
+                    <div class="admin-form-section">
+                        <form class="login-form">
+                            <div class="form-group">
+                                <label for="email-admin">E-mail</label>
+                                <input type="email" id="email-admin" name="email" placeholder="Digite o e-mail"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="senha-admin">Senha</label>
+                                <input type="password" id="senha-admin" name="senha" placeholder="Digite a senha"
+                                    required>
+                            </div>
+                            <button type="submit" class="login-btn">Cadastrar Administrador</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Contato</h2>
+                <h3>Diretoria de Inovação</h3>
+                <p>
+                    Endereço: Rua José Antônio da Silva, 300 <br>
+                    Bairro Jardim Oásis Cajazeiras - PB CEP: 58.900-000
+                </p>
+                <p>
+                    Horário de Funcionamento de segunda a sexta-feira, das 7h às 22h35.<br>
+                    Telefone: (83) 2017-0142<br>
+                    inovacao.cz@ifpb.edu.br
+                </p>
+                <p><a href="https://www.ifpb.edu.br/prpipg">https://www.ifpb.edu.br/prpipg</a></p>
+            </div>
+            <div class="footer-right">
+                <img src="assets/images/proReitoriaIno.png" alt="Logo IFPB">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Vitrine Tecnológica - IFPB.</p>
+        </div>
+    </footer>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="editModalTitle"></h2>
+            <form id="editForm">
+                <div class="admin-form-group">
+                    <label for="editTitle">Título</label>
+                    <input type="text" id="editTitle" class="admin-input" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="editDesc">Descrição</label>
+                    <textarea id="editDesc" rows="3" class="admin-input"></textarea>
+                </div>
+                <div class="admin-form-group">
+                    <label for="editAutores">Autores</label>
+                    <input type="text" id="editAutores" class="admin-input">
+                </div>
+                <div class="admin-form-group">
+                    <label for="editCategory">Categoria</label>
+                    <select id="editCategory" class="admin-input">
+                        <option value="patente">Patente</option>
+                        <option value="software">Software</option>
+                    </select>
+                </div>
+                <div class="admin-form-group">
+                    <label for="editArea">Área do Conhecimento</label>
+                    <select id="editArea" class="admin-input" multiple>
+                        <option value="saude">Saúde</option>
+                        <option value="engenharia">Engenharia</option>
+                        <option value="robotica">Robótica</option>
+                    </select>
+                </div>
+                <input type="hidden" id="editId">
+                <input type="hidden" id="editType">
+
+                <button type="submit" class="admin-button">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="deleteModalTitle">Confirmar Exclusão</h2>
+            <p id="deleteMessage">Tem certeza que deseja excluir este item? Esta ação não pode ser desfeita.</p>
+            <div class="modal-actions">
+                <button id="confirmDelete" class="admin-button delete-button">Excluir</button>
+                <button id="cancelDelete" class="admin-button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
